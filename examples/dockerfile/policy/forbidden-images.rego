@@ -3,7 +3,7 @@ import rego.v1
 
 denylist := ["openjdk"]
 
-deny contains msg if {
+warn contains msg if {
 	some i
 	input[i].Cmd == "from"
 	val := input[i].Value
