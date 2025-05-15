@@ -1,0 +1,33 @@
+# Решение задания 2
+
+## Ход решения
+
+Чтобы предотвратить лишние проверки, сначала нужно исключить аквариумы с типом воды Mixed. Для этого нужно проитерироваться по каждому из аквариумов (`some aquarium in input.aquarium`) и проверить, что тип воды не равен Mixed (`not aquarium.water_type == "Mixed"`). Далее нужно проитерироваться по каждой рыбе в аквариуме и проверить её тип воды. Если `fish.is_salty == true` и `aquarium.water_type == "Fresh"`, тогда с помощью встроенной функции `sprintf` вывести сообщение, где нужно будет указать вид и имя рыбы с помощью плейсхолдеров `%s` и полей `fish.species, fish.name`. Аналогично пишется второе правило, которое будет проверять уже `fish.is_salty == false` и `aquarium.water_type == "Salty"`.
+
+## Код политики
+
+```rego
+package solutions
+
+deny contains msg if {
+	some aquarium in input.aquarium
+	not aquarium.water_type == "Mixed"
+
+	some fish in aquarium.fish
+	fish.is_salty == true
+	aquarium.water_type == "Fresh"
+
+	msg := sprintf("Рыба %s %s должна жить в солёной воде!", [fish.species, fish.name])
+}
+
+deny contains msg if {
+	some aquarium in input.aquarium
+	not aquarium.water_type == "Mixed"
+
+	some fish in aquarium.fish
+	fish.is_salty == false
+	aquarium.water_type == "Salty"
+
+	msg := sprintf("Рыба %s %s должна жить в пресной воде!", [fish.species, fish.name])
+}
+```

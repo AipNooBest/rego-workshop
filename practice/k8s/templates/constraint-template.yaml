@@ -1,0 +1,24 @@
+apiVersion: templates.gatekeeper.sh/v1
+kind: ConstraintTemplate
+metadata:
+  name: k8spodrequests # Указание имени шаблона ограничения. Оно должно быть уникальным
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sPodRequests # Имя kind, которое мы будем указывать для всех ограничений на основе этой политики
+  targets:
+    - target: admission.k8s.gatekeeper.sh # Применяем на этапе Admission (проверка запросов)
+      code: # Указываем явно, что используется версия Rego v1
+        - engine: Rego
+          source:
+            version: "v1"
+            rego: |
+              package k8spodrequests # Называем политику так же, как имя шаблона
+
+              violation contains {"msg": msg} if { # Здесь поле "msg" является обязательным. По желанию можно добавить другие поля
+                manifest := input.review.object # В отличие от conftest, здесь применяемый манифест лежит в объекте review.object
+                some container in manifest.spec.containers
+                not container.resources.requests
+                msg := sprintf("У контейнера %s не указаны requests", [container.name])
+              }

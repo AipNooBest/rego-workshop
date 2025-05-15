@@ -1,0 +1,82 @@
+{
+  "aquarium": [
+    {
+      "name": "Coral Haven",
+      "fish": [
+        {
+          "name": "Bubbles",
+          "species": "Clownfish",
+          "color": "Orange",
+          "amount": 2,
+          "is_salty": true,
+          "favorite_foods": ["Plankton", "Algae", "Small Shrimp"]
+        },
+        {
+          "name": "Slicer",
+          "species": "Swordfish",
+          "color": "Silver",
+          "amount": 2,
+          "is_salty": true,
+          "favorite_foods": ["Squid", "Mackerel", "Herring"]
+        },
+        {
+          "name": "Sneaky",
+          "species": "Eel",
+          "color": "Green",
+          "amount": 0,
+          "is_salty": true,
+          "favorite_foods": ["Crabs", "Worms", "Fish Chunks"]
+        },
+        {
+          "name": "Goldie",
+          "species": "Goldfish",
+          "color": "Yellow",
+          "amount": 3,
+          "is_salty": false,
+          "favorite_foods": ["Flakes", "Pellets"]
+        },
+        {
+          "name": "Shadow",
+          "species": "Angelfish",
+          "color": "Black",
+          "amount": 1,
+          "is_salty": false,
+          "favorite_foods": ["Mysis Shrimp"]
+        }
+      ],
+      "water_type": "Mixed",
+      "max_fish": 10
+    },
+    {
+      "name": "Tranquil Flow",
+      "fish": [
+        {
+          "name": "Bubbles",
+          "species": "Clownfish",
+          "color": "Orange",
+          "amount": 1,
+          "is_salty": true,
+          "favorite_foods": ["Plankton", "Algae", "Small Shrimp"]
+        },
+        {
+          "name": "Scales",
+          "species": "Guppy",
+          "color": "Multicolor",
+          "amount": 5,
+          "is_salty": false,
+          "favorite_foods": ["Flakes", "Brine Shrimp"]
+        },
+        {
+          "name": "Ripple",
+          "species": "Tetra",
+          "color": "Blue",
+          "amount": 4,
+          "is_salty": false,
+          "favorite_foods": ["Micro Worms", "Daphnia"]
+        }
+      ],
+      "water_type": "Fresh",
+      "max_fish": 6
+    }
+  ]
+}
