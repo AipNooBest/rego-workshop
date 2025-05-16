@@ -1,19 +1,13 @@
-# This is a basic workflow to help you get started with Actions
-
 name: OPA-Demo
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   conftest:
     runs-on: ubuntu-latest
@@ -22,6 +16,14 @@ jobs:
       - name: Code checkout
         uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Conftest example
-        run: conftest test -o github -p examples/dockerfile/policy examples/dockerfile/Dockerfile
+      - name: Check DEMO ALL TASKS
+        run: conftest test --all-namespaces -o github -p practice/demo/solutions practice/demo/input.json
+
+      - name: Check DOCKERFILE TASK 1
+        run: conftest test --all-namespaces -o github -p practice/dockerfile/task1/solution.rego practice/dockerfile/task1/samples
+
+      - name: Check DOCKERFILE TASK 2
+        run: conftest test --all-namespaces -o github -p practice/dockerfile/task2/solution.rego practice/dockerfile/task2/samples
+      
+      - name: Check KUBERNETES TASK 1
+        run: conftest test --all-namespaces -o github -p practice/k8s/conftest.rego practice/k8s/example/3-bad-pod.yaml

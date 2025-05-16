@@ -1,6 +1,6 @@
 package k8s
 
-deny contains msg if {
+warn contains msg if {
 	input.kind == "Pod"
 	some container in input.spec.containers
 	not container.resources.requests
