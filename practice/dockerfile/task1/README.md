@@ -6,5 +6,13 @@ __Задание__: написать политику, которая прове
 
 Для запуска предоставленного решения необходимо выполнить команду:
 ```sh
-conftest test samples -p solution.rego --all-namespaces
+conftest test --all-namespaces -p solution.rego samples
 ```
+
+При использовании Docker команда будет выглядеть следующим образом:
+```sh
+docker run --rm -v ${PWD}:/project openpolicyagent/conftest test --all-namespaces -p solution.rego samples
+```
+
+> [!TIP]
+> Для тех, у кого не установлен conftest, но есть желание написать политику, в папке лежит сконвертированный с помощью conftest файл `input.json`. Его можно использовать в качестве входных данных в Rego Playground или в плагине VS Code.

@@ -35,5 +35,5 @@ __Задание__: написать политику, которая прове
 Для демонстрации примера необходимо иметь установленный в кластере [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) и права кластер-админа.
 
 ```
-kubectl apply -f examples/*
+kubectl apply -f example
 ```

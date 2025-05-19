@@ -1,0 +1,105 @@
+[
+    {
+        "Cmd": "from",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "alpine:latest"
+        ]
+    },
+    {
+        "Cmd": "run",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "apk add --update py2-pip"
+        ]
+    },
+    {
+        "Cmd": "run",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "pip install --upgrade pip"
+        ]
+    },
+    {
+        "Cmd": "copy",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "requirements.txt",
+            "/usr/src/app/"
+        ]
+    },
+    {
+        "Cmd": "run",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "pip install --no-cache-dir -r /usr/src/app/requirements.txt"
+        ]
+    },
+    {
+        "Cmd": "copy",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "app.py",
+            "/usr/src/app/"
+        ]
+    },
+    {
+        "Cmd": "copy",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "templates/index.html",
+            "/usr/src/app/templates/"
+        ]
+    },
+    {
+        "Cmd": "expose",
+        "Flags": [
+        ],
+        "JSON": false,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "5000"
+        ]
+    },
+    {
+        "Cmd": "cmd",
+        "Flags": [
+        ],
+        "JSON": true,
+        "Stage": 0,
+        "SubCmd": "",
+        "Value": [
+            "python",
+            "/usr/src/app/app.py"
+        ]
+    }
+]

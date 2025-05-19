@@ -6,5 +6,10 @@ __Задание__: написать политику, которая прове
 
 Для запуска предоставленного решения необходимо выполнить команду:
 ```sh
-conftest test samples -p . --all-namespaces
+conftest test --all-namespaces -p . samples 
+```
+
+При использовании Docker команда будет выглядеть следующим образом:
+```sh
+docker run --rm -v ${PWD}:/project openpolicyagent/conftest test --all-namespaces -p . samples
 ```
