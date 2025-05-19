@@ -6,5 +6,5 @@ __Задание__: написать политику, которая прове
 
 Для запуска предоставленного решения необходимо выполнить команду:
 ```sh
-conftest test samples -p solution.rego --all-namespaces
+conftest test samples -p . --all-namespaces
 ```
