@@ -20,10 +20,10 @@ jobs:
         run: conftest test --all-namespaces -o github -p practice/demo/solutions practice/demo/input.json
 
       - name: Check DOCKERFILE TASK 1
-        run: conftest test --all-namespaces -o github -p practice/dockerfile/task1/solution.rego practice/dockerfile/task1/samples
+        run: conftest test --all-namespaces -o github -p practice/dockerfile/task1 practice/dockerfile/task1/samples
 
       - name: Check DOCKERFILE TASK 2
-        run: conftest test --all-namespaces -o github -p practice/dockerfile/task2/solution.rego practice/dockerfile/task2/samples
+        run: conftest test --all-namespaces -o github -p practice/dockerfile/task2 practice/dockerfile/task2/samples
       
       - name: Check KUBERNETES TASK 1
-        run: conftest test --all-namespaces -o github -p practice/k8s/conftest.rego practice/k8s/example/3-bad-pod.yaml
+        run: conftest test --all-namespaces -o github -p practice/k8s practice/k8s/example/3-bad-pod.yaml
