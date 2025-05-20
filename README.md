@@ -46,6 +46,9 @@ docker run --rm -v ${PWD}:/project openpolicyagent/conftest test --all-namespace
 ### Способ 3 - [Rego Playground](https://play.openpolicyagent.org/)
 Необходимо скопировать содержимое файла `input.json` и вставить в окно `INPUT`, а в основном окне писать политику. Для запуска предоставленных решений достаточно в основное окно вставить содержимое `.rego` файлов в папке `solutions`.
 
+## Пример пайплайна
+В данном репозитории с помощью Github Actions запускается пайплайн с conftest. Его можно использовать как пример интеграции в пайплайн, либо для проверки, какой результат должны выводить правильные ответы, и что эти ответы работают правильно.
+
 ## Полезные ссылки
 - [Rego Playground](https://play.openpolicyagent.org/)
 - [Документация по Rego и его синтаксису](https://www.openpolicyagent.org/docs/latest/policy-language/)
