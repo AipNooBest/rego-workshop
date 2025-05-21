@@ -28,12 +28,16 @@ __Задание__: написать политику, которая прове
 
 ## Описание папки
 
-В данной папке находится пример Constraint Template и сам Constraint на основе следующей политики, которая проверяет, что у манифеста пода (`kind: Pod`) для каждого из контейнеров указан request.
+В папке `example` находится пример Constraint Template и сам Constraint на основе задания выше. Кроме этого имеется под и деплоймент, которые будут нарушать заданные в предыдущих файлах политики.
 
-В файле `conftest.rego` приведёт пример этой политики для conftest. 
+В файле `conftest.rego` приведён пример этой политики для conftest.
 
 Для демонстрации примера необходимо иметь установленный в кластере [Gatekeeper](https://github.com/open-policy-agent/gatekeeper) и права кластер-админа.
 
-```
-kubectl apply -f example
+Применять манифесты необходимо по очереди, чтобы Kubernetes успел создать CRD:
+```sh
+kubectl apply -f example/1-constraint-template.yaml
+kubectl apply -f example/2-constraint.yaml
+kubectl apply -f example/3-bad-pod.yaml
+kubectl apply -f example/4-bad-deployment.yaml # По желанию
 ```
